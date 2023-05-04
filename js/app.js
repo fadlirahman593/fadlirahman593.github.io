@@ -89,7 +89,7 @@ const play = (btn) => {
     }
 };
 
-const resetForm = () => {
+/*const resetForm = () => {
     document.getElementById('kirim').style.display = 'block';
     document.getElementById('hadiran').style.display = 'block';
     document.getElementById('labelhadir').style.display = 'block';
@@ -252,11 +252,11 @@ const kirimBalasan = async () => {
     document.getElementById('kirimbalasan').disabled = false;
     document.getElementById('kirimbalasan').innerHTML = tmp;
 };
-
+*/
 const innerCard = (comment) => {
     let result = '';
 
-    comment.forEach((data) => {
+    /*comment.forEach((data) => {
         result += `
         <div class="card-body border-start bg-light py-2 ps-2 pe-0 my-2 ms-2 me-0" id="${data.uuid}">
             <div class="d-flex flex-wrap justify-content-between align-items-center">
@@ -271,7 +271,7 @@ const innerCard = (comment) => {
             ${innerCard(data.comment)}
         </div>`;
     });
-
+    */
     return result;
 };
 
@@ -319,7 +319,7 @@ const renderLoading = (num) => {
 
 const pagination = (() => {
 
-    const perPage = 10;
+    const perPage = 1;
     var pageNow = 0;
     var resultData = 0;
 
@@ -505,21 +505,8 @@ const kirim = async () => {
 
     document.getElementById('kirim').disabled = true;
     let tmp = document.getElementById('kirim').innerHTML;
-    document.getElementById('kirim').innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span>Loading...`;
+    document.getElementById('kirim').innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span>terkirim...`;
 
-    const REQ = {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token
-        },
-        body: JSON.stringify({
-            nama: nama,
-            hadir: hadir == 1,
-            komentar: komentar
-        })
-    };
 
     await fetch(document.querySelector('body').getAttribute('data-url') + '/api/comment', REQ)
         .then((res) => res.json())
