@@ -1,4 +1,4 @@
-## Template website undangan pernikahan sederhana
+## Website undangan pernikahan sederhana
 
 
 ### Tech stack
